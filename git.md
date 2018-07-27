@@ -11,5 +11,12 @@ git checkout  分支名称
 ```
 git checkout -b 本地分支名 origin/远程分支名
 ```
-xxxx
+- 拉取远程分支到当前分支上（必须是同意分支）
+```
+git pull origin 远程分支名
+```
+
+
+
+
 
