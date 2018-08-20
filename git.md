@@ -11,12 +11,42 @@ git branch
 git checkout  分支名称
 ```
 
+- 创建分支并切换到创建的分支上
+```
+git checkout -b 分支名
+```
 
-- 拉取远程分支到新建的分支上
+- 检出远程分支到新建的分支上
 ```
 git checkout -b 本地分支名 origin/远程分支名
 ```
 
+- 检出 (暂存区 |  历史区) 的内容覆盖 工作区的内容
+```
+// （ 暂存区 | 历史区最后一个commit版本 ） =》  工作区  就是让这个文件回到最近一次git commit或git add时的状态。
+//检出（暂存区或者历史区） 指定文件
+git checkout 文件
+// 当文件路径和分支名称一样时。加--表示检出文件名  如果不加就表示是切换分支
+git checkout -- a
+```
+
+- 检出 某个(分支 | 提交id | tag )的内容 覆盖工作区内容 
+```
+// 将commitId 对应的文件内容 覆盖到当前工作 和 暂存区(会丢失暂存区相同文件名的暂存数据)
+git checkout commitId -- 文件路径
+// 将分支最后一次提交的文件内容  覆盖到当前工作 和 暂存区(会丢失暂存区相同文件名的暂存数据)
+git checkout 分支名 -- 文件路径
+
+``` 
+
+
+[参考文献](https://www.cnblogs.com/kuyuecs/p/7111749.html)
+
+
+- 暂存区文件恢复到工作区
+```
+git reset HEAD 文件路径
+```
 
 - 拉取远程分支到当前分支上（必须是同意分支）
 ```
@@ -35,12 +65,10 @@ git merge 分支名
 git log | --pretty=oneline(简化的版本信息) 
 ```
 
-
 - 查看指定文件相关的commit记录
 ```
 git log 文件名  
 ```
-
 
 - 查看指定文件相关的commit记录,每次提交的diff
 ```
@@ -52,14 +80,12 @@ git log -p 文件名
 git reflog
 ```
 
-
 - 分支回滚~~
 ```
 git reset --hard 回滚哈希值
 ```
 
-
-- 工作区=》暂存区 
+- 工作区 =》 暂存区 
 ```
 // 单个文件转移
 git add （ 文件路径 ) 
@@ -122,8 +148,4 @@ git diff branch1 branch2
 git diff branch1 branch2 git.md
 ```
 
-- 暂存区 =》 工作区
-```
-git checkout 文件
-```
 
