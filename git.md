@@ -57,7 +57,7 @@ git merge 分支名
 ```
 - 不使用 fast forward 模式合并代码
 ```
-git merge --no--ff -m "merge with no-ff" dev 
+git merge --no-ff -m "merge with no-ff" dev 
 ```
 
 - 查看版本库
